@@ -12,7 +12,8 @@ import java.util.List;
 @RestController
 public class MovieDetailsController {
 
-    private MovieRepo movieRepo;
+
+    private final MovieRepo movieRepo;
 
     public MovieDetailsController(MovieRepo movieRepo) {
         this.movieRepo = movieRepo;
