@@ -15,7 +15,7 @@ public class MovieStreamController {
 
     public static final String VIDEO_FILE = "C:\\Users\\Admin\\Downloads\\auk.mp4";
 
-    @GetMapping("/stream")
+    @GetMapping("/stream/{videoPath}")
     public ResponseEntity<InputStreamResource> streamMovie(String videoPath) throws FileNotFoundException {
 
         File videoFile = new File(videoPath);
