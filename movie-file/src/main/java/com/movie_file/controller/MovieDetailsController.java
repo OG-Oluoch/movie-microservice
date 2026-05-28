@@ -2,10 +2,7 @@ package com.movie_file.controller;
 
 import com.movie_file.model.MovieDetails;
 import com.movie_file.model.MovieRepo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +27,14 @@ public class MovieDetailsController {
     public List<MovieDetails> getAll(){
 
         return movieRepo.findAll();
+    }
+
+    @GetMapping("/movie-details/find-path-id/{movieId}")
+    public String findPathById(@PathVariable Long movieId){
+
+        var optionalMovieDetails = movieRepo.findById(movieId);
+
+        return optionalMovieDetails.map(MovieDetails::getPath).orElse(null);
+
     }
 }
